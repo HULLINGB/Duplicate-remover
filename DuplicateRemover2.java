@@ -1183,38 +1183,36 @@ public class DuplicateRemover2
   "umbrage", "vacuously", "wantonly", "xenophobia", "youthfulness",
   "zealously"};
 
-    ArrayList < String > dictionary2 = new ArrayList <> ();
+    ArrayList<String> dictionary2 = new ArrayList <> ();
     boolean duplicate;
     for (int i = 0; i < dictionary.length; i++)
-      {
-  duplicate = false;
-  for (int j = 0; j < dictionary2.size (); j++)
     {
-      if (dictionary[i].equals (dictionary2.get (j)))
+      duplicate = false;
+      for (int j = 0; j < dictionary2.size(); j++)
+      {
+        if (dictionary[i].equals (dictionary2.get(j)))
         {
-    duplicate = true;
-    break;
+        duplicate = true;
+        break;
         }
-    }
-  if (!duplicate)
-    {
-      dictionary2.add (dictionary[i]);
-    }
       }
-    int g = 0;
-    for (int i = 0; i < dictionary2.size (); i++)
+      if (!duplicate)
       {
-  System.out.print ("\"" + dictionary2.get (i) + "\"");
-  g++;
-  if (g < 4)
-    {
-      System.out.print (", ");
-    }
-  else
-    {
-      g = 0;
-      System.out.println (", ");
-    }
+        dictionary2.add(dictionary[i]);
       }
+    }
+    int g = 0;
+    for (int i = 0; i < dictionary2.size(); i++)
+    {
+      System.out.print("\"" + dictionary2.get(i) + "\"");
+      g++;
+    if (g < 4)
+    {
+      System.out.print(", ");
+    }else{
+      g = 0;
+      System.out.println(", ");
+    }
+    }
   }
 }
