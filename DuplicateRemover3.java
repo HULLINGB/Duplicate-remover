@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Collections;
 
 //This program will remove the duplicates and tell
 //us which words had duplicstes and how many times they appeared
@@ -1186,79 +1184,62 @@ public class DuplicateRemover3
   "umbrage", "vacuously", "wantonly", "xenophobia", "youthfulness",
   "zealously"};
 
-    
     ArrayList<String> dictionary2 = new ArrayList<>();
+    ArrayList<String> dictionary3 = new ArrayList<>();
     ArrayList<Integer> numDuplicates = new ArrayList<>();
-    int counter = 0;
-    HashMap<Integer, String> map = new HashMap<>();
-    HashMap<String, Integer> mapSubtractor = new HashMap<>();
+    ArrayList<Integer> positions = new ArrayList<>();
     boolean duplicate;
-    int numOfDuplicates = 0;
-    int x = 0;
-    for (int i = 0; i < dictionary.length; i++)
+    for(int i = 0; i < dictionary.length; i++) 
     {
-      duplicate = false;
-      for (int j = 0; j < dictionary2.size(); j++)
+    duplicate = false;
+    for(int j = 0; j < dictionary2.size(); j++) 
+    {
+      if(dictionary[i].equals(dictionary2.get(j))) 
       {
-        if (dictionary[i].equals(dictionary2.get(j)))
-        {
-        duplicate = true;
-        numOfDuplicates++;
-        //break;
-        }
+          duplicate = true;
+          positions.add(i);
+          break;
+          }
       }
-      if (!duplicate)
+      if (!duplicate) 
       {
         dictionary2.add(dictionary[i]);
-      }else{
-        if(numOfDuplicates > 0)
-            {
-              while(x < numDuplicates.size())
-                {
-                    if(numDuplicates.get(x).equals(numOfDuplicates))
-                    {
-                        counter++;
-                        numOfDuplicates++;
-                    }
-                    x++;
-                }
-                x = 0;
-            }
-        numDuplicates.add(numOfDuplicates);
-        map.put(numOfDuplicates, dictionary[i]);
-        //mapSubtractor.put(String.valueOf(numOfDuplicates), counter);
+        } else {
+          dictionary3.add(dictionary[i]);
+        }
       }
-      numOfDuplicates = 0;
-      counter = 0;
-    }
-    int g = 0;
-    Collections.sort(numDuplicates, Collections.reverseOrder()); 
-    System.out.println("These are the words that had duplicates are: ");
-    System.out.println(" ");
-    //int subtractor = 0;
-    int num = 0;
-    //String finalValue = "";
-    for(int i = 0; i < numDuplicates.size(); i++)
-    {
-        //subtractor = mapSubtractor.get(String.valueOf(numDuplicates.get(i)));
-        //num = numDuplicates.get(i) - subtractor;
-        //finalValue = String.valueOf(num);
-        System.out.println("Word " + map.get(numDuplicates.get(i)) + " had duplicate entries");
-        //System.out.println("Word " + map.get(numDuplicates.get(i)) + " had " + finalValue + " duplicate entries");
+      System.out.println("Words with duplicates are: ");
+      for (int v = 0; v < dictionary3.size(); v++) 
+      {
+        int numOfDuplicates = 0;
+            for (int i = 0; i < dictionary.length; i++) 
+            {
+              if(dictionary3.get(v).equals(dictionary[i])) {
+                  numOfDuplicates++;
+                  if (numOfDuplicates > 0) 
+                  {
+                      positions.add(i);
+                  }
+              }
+          }
+          numDuplicates.add(numOfDuplicates);
+          System.out.print(dictionary3.get(v) + " has " + numDuplicates.get(v) + " in positions: ");
+          for (int x = 0; x < positions.size(); x++) {
+            System.out.print(positions.get(x));
+              if (x < positions.size() - 1) {
+                System.out.print(", ");
+              }
+          }
+          System.out.println();
+          positions.clear();
+        }
 
-    }
-    System.out.println("The newly built list without the duplicates is: ");
-    for (int i = 0; i < dictionary2.size(); i++)
-    {
-      System.out.print("\"" + dictionary2.get(i) + "\"");
-      g++;
-    if (g < 4)
-    {
-      System.out.print(", ");
-    }else{
-      g = 0;
-      System.out.println(", ");
-    }
-    }
+        System.out.println("The newly built list without duplicates is: ");
+        for (int i = 0; i < dictionary2.size(); i++) {
+            System.out.print("\"" + dictionary2.get(i) + "\"");
+            if (i < dictionary2.size() - 1) {
+                System.out.print(", ");
+            }
+        }
   }
 }
