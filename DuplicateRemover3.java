@@ -1224,7 +1224,7 @@ public class DuplicateRemover3
               }
           }
           numDuplicates.add(numOfDuplicates);
-          System.out.print(dictionary3.get(v) + " is located " + numDuplicates.get(v) + " in positions: ");
+          System.out.print(dictionary3.get(v) + " is in the array " + numDuplicates.get(v) + " times in positions: ");
           for (int x = 0; x < positions.size(); x++) 
           {
             System.out.print(positions.get(x));
