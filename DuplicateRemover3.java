@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 
-//This program will remove the duplicates and tell
-//us which words had duplicates and how many times they appeared
+//This program will remove the duplicates and tell us
+//which words had duplicates, how many times they appeared,
 //and in the position number they appear.
 public class DuplicateRemover3
 {
-  public static void main (String[]args)
+  public static void main(String[] args)
   {
     String[] dictionary =
     {
@@ -1234,10 +1234,10 @@ public class DuplicateRemover3
                 System.out.print(", ");
               }
           }
-          System.out.println();
+          System.out.println("");
           positions.clear();
         }
-        System.out.println(" ");
+        System.out.println("");
         System.out.println("The newly built list without duplicates is: ");
         for (int i = 0; i < dictionary2.size(); i++) {
             System.out.print("\"" + dictionary2.get(i) + "\"");
