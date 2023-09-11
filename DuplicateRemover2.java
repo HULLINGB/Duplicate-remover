@@ -5,7 +5,7 @@ public class DuplicateRemover2
   public static void main (String[]args)
   {
 
-    String[]dictionary =
+    String[] dictionary =
     {
     "the", "of", "and", "to", "in", "is", "you", "that", "it", "he", "was",
   "for", "on", "are", "with", "as", "his", "at", "by", "they", "one",
@@ -1190,23 +1190,23 @@ public class DuplicateRemover2
       duplicate = false;
       for (int j = 0; j < dictionary2.size(); j++)
       {
-        if (dictionary[i].equals (dictionary2.get(j)))
+        if(dictionary[i].equals (dictionary2.get(j)))
         {
         duplicate = true;
         break;
         }
       }
-      if (!duplicate)
+      if(!duplicate)
       {
         dictionary2.add(dictionary[i]);
       }
     }
     int g = 0;
-    for (int i = 0; i < dictionary2.size(); i++)
+    for(int i = 0; i < dictionary2.size(); i++)
     {
       System.out.print("\"" + dictionary2.get(i) + "\"");
       g++;
-    if (g < 4)
+    if(g < 4)
     {
       System.out.print(", ");
     }else{
