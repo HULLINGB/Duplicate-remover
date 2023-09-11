@@ -1202,7 +1202,7 @@ public class DuplicateRemover3
           break;
           }
       }
-      if (!duplicate) 
+      if(!duplicate) 
       {
         dictionary2.add(dictionary[i]);
         } else {
@@ -1210,15 +1210,15 @@ public class DuplicateRemover3
         }
       }
       System.out.println("Words with duplicates are: ");
-      for (int v = 0; v < dictionary3.size(); v++) 
+      for(int v = 0; v < dictionary3.size(); v++) 
       {
         int numOfDuplicates = 0;
-            for (int i = 0; i < dictionary.length; i++) 
+            for(int i = 0; i < dictionary.length; i++) 
             {
               if(dictionary3.get(v).equals(dictionary[i])) 
               {
                   numOfDuplicates++;
-                  if (numOfDuplicates > 0) 
+                  if(numOfDuplicates > 0) 
                   {
                       positions.add(i);
                   }
@@ -1226,10 +1226,10 @@ public class DuplicateRemover3
           }
           numDuplicates.add(numOfDuplicates);
           System.out.print(dictionary3.get(v) + " is in the array " + numDuplicates.get(v) + " times in positions: ");
-          for (int x = 0; x < positions.size(); x++) 
+          for(int x = 0; x < positions.size(); x++) 
           {
             System.out.print(positions.get(x));
-              if (x < positions.size() - 1) 
+              if(x < positions.size() - 1) 
               {
                 System.out.print(", ");
               }
@@ -1239,9 +1239,9 @@ public class DuplicateRemover3
         }
         System.out.println("");
         System.out.println("The newly built list without duplicates is: ");
-        for (int i = 0; i < dictionary2.size(); i++) {
+        for(int i = 0; i < dictionary2.size(); i++) {
             System.out.print("\"" + dictionary2.get(i) + "\"");
-            if (i < dictionary2.size() - 1) 
+            if(i < dictionary2.size() - 1) 
             {
                 System.out.print(", ");
             }
