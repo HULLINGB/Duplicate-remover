@@ -2,8 +2,9 @@ import java.util.ArrayList;
 
 //This program will remove the duplicates and tell us
 //which words had duplicates, how many times they appeared,
-//and in the position number they appear.
-public class DuplicateRemover3
+//and in the position number they appear, without duplicates
+//in the duplicates positions list
+public class DuplicateRemover4
 {
   public static void main(String[] args)
   {
@@ -1187,35 +1188,53 @@ public class DuplicateRemover3
 
     ArrayList<String> dictionary2 = new ArrayList<>();
     ArrayList<String> dictionary3 = new ArrayList<>();
+    ArrayList<String> dictionary4 = new ArrayList<>();
     ArrayList<Integer> numDuplicates = new ArrayList<>();
     ArrayList<Integer> positions = new ArrayList<>();
-    boolean duplicate;
+    boolean duplicate = false;
     for(int i = 0; i < dictionary.length; i++) 
     {
-    duplicate = false;
     for(int j = 0; j < dictionary2.size(); j++) 
     {
       if(dictionary[i].equals(dictionary2.get(j))) 
       {
           duplicate = true;
-          positions.add(i);
+          //positions.add(i);
           break;
-          }
       }
+    }
       if(!duplicate) 
       {
         dictionary2.add(dictionary[i]);
-        } else {
+      } else {
           dictionary3.add(dictionary[i]);
-        }
       }
+      duplicate = false;
+    }
+    for(int i = 0; i < dictionary3.size(); i++)
+    {
+        for(int j = 0; j < dictionary4.size(); j++) 
+        {
+          if(dictionary3.get(i).equals(dictionary4.get(j))) 
+          {
+              duplicate = true;
+              positions.add(i);
+              break;
+          }
+        }
+          if(!duplicate) 
+          {
+            dictionary4.add(dictionary3.get(i));
+          }
+          duplicate = false;
+    }
       System.out.println("Words with duplicates are: ");
-      for(int v = 0; v < dictionary3.size(); v++) 
+      for(int v = 0; v < dictionary4.size(); v++) 
       {
         int numOfDuplicates = 0;
             for(int i = 0; i < dictionary.length; i++) 
             {
-              if(dictionary3.get(v).equals(dictionary[i])) 
+              if(dictionary4.get(v).equals(dictionary[i])) 
               {
                   numOfDuplicates++;
                   if(numOfDuplicates > 0) 
@@ -1225,7 +1244,7 @@ public class DuplicateRemover3
               }
           }
           numDuplicates.add(numOfDuplicates);
-          System.out.print(dictionary3.get(v) + " is in the array " + numDuplicates.get(v) + " times in positions: ");
+          System.out.print(dictionary4.get(v) + " is in the array " + numDuplicates.get(v) + " times in positions: ");
           for(int x = 0; x < positions.size(); x++) 
           {
             System.out.print(positions.get(x));
